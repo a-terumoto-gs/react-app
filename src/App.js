@@ -1,23 +1,24 @@
-import './App.css';
+import React, { useState } from 'react';
+import MemoList from './MemoList';
+import MemoEditor from './MemoEditor';
 
-function App() {
+export default function App() {
+  const [memos, setMemos] = useState([
+    { id: 1, text: 'Memo 1' },
+    { id: 2, text: 'Memo 2' },
+  ]);
+  //サンプルデータ
+
+  const [selectedMemo, setSelectedMemo] = useState(null);
+
+  function handleEdit (memo) {
+    setSelectedMemo(memo);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MemoList memos={memos} onEdit={handleEdit} />
+      {selectedMemo && <MemoEditor memo={selectedMemo} />}
     </div>
   );
-}
-
-export default App;
+};
