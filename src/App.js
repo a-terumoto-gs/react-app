@@ -15,10 +15,19 @@ export default function App() {
     setSelectedMemo(memo);
   };
 
+  function handleDelete (memoId) {
+    setMemos(memos.filter(memo => memo.id !== memoId)); //消すメモ以外をセットする
+    setSelectedMemo(null);
+  }
+
   return (
     <div>
       <MemoList memos={memos} onEdit={handleEdit} />
-      {selectedMemo && <MemoEditor memo={selectedMemo} />}
+      {selectedMemo &&
+      <MemoEditor memo={selectedMemo}
+        onEdit = {()=> handleEdit(selectedMemo)}
+        on onDelete={ () => handleDelete(selectedMemo.id)}
+        />} 
     </div>
   );
 };
