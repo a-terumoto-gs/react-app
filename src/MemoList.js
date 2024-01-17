@@ -7,7 +7,7 @@ export default function MemoList({ memos, onSelect, onAdd}) {
       <ul>
         {memos.map((memo) => (
           <li key={memo.id} onClick={() => onSelect(memo)}>
-            {memo.text}
+            {memo.text.split('\n')[0]}
           </li>
         ))}
       </ul>

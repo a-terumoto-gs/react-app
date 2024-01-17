@@ -21,7 +21,7 @@ export default function MemoEditor({memo, onEdit, onDelete }) {
     <div>
       <h2>メモ内容</h2>
       <div>
-        < input type="text" value={editedText} onChange={handleChange} />
+        <textarea type="text" value={editedText} onChange={handleChange} />
         <button onClick={handleEdit}>編集</button>
         <button onClick={() => onDelete(memo.id)}>削除</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
