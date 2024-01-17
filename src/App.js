@@ -11,9 +11,16 @@ export default function App() {
 
   const [selectedMemo, setSelectedMemo] = useState(null);
 
-  function handleEdit (memo) {
+  function handleSlect (memo) {
     setSelectedMemo(memo);
   };
+
+  function handleEdit(newText) {
+    setMemos(memos.map(memo =>
+      memo.id === selectedMemo.id ? { ...memo, text: newText } : memo
+    ));
+    setSelectedMemo(null);
+  }
 
   function handleDelete (memoId) {
     setMemos(memos.filter(memo => memo.id !== memoId)); //消すメモ以外をセットする
@@ -22,10 +29,10 @@ export default function App() {
 
   return (
     <div>
-      <MemoList memos={memos} onEdit={handleEdit} />
+      <MemoList memos={memos} onSelect={handleSlect} />
       {selectedMemo &&
       <MemoEditor memo={selectedMemo}
-        onEdit = {()=> handleEdit(selectedMemo)}
+        onEdit={handleEdit}
         on onDelete={ () => handleDelete(selectedMemo.id)}
         />} 
     </div>
