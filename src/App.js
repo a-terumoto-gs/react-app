@@ -13,7 +13,7 @@ export default function App() {
 
   function handleSlect (memo) {
     setSelectedMemo(memo);
-  };
+  }
 
   function handleEdit(newText) {
     setMemos(memos.map(memo =>
