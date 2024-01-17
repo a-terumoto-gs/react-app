@@ -28,9 +28,11 @@ export default function App() {
   }
 
   function handleAdd() {
+    if (selectedMemo && selectedMemo.text.trim() !== '') {
     const newMemo = { id: Date.now(), text: '' };
     setMemos([...memos, newMemo]);
     setSelectedMemo(newMemo);
+    }
   }
 
   return (
@@ -43,4 +45,4 @@ export default function App() {
         />} 
     </div>
   );
-};
+      }

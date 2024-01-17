@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MemoEditor.css'
 
 export default function MemoEditor({memo, onEdit, onDelete }) {
   const [editedText, setEditedText] = useState(memo ? memo.text : '');
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    setEditedText(memo ? memo.text : '');
+    setError('');
+  }, [memo]);
 
   function handleChange(event) {
     setEditedText(event.target.value);

@@ -15,5 +15,5 @@ export default function MemoList({ memos, onSelect, onAdd}) {
       <button className = "new-botton" onClick={onAdd}>+</button>
     </div>
   );
-};
+}
 
