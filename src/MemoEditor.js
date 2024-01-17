@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
 export default function MemoEditor({memo, onEdit, onDelete }) {
-  const [editedText, setEditedText] = useState(memo.text);
+  const [editedText, setEditedText] = useState(memo ? memo.text : '');
+  const [error, setError] = useState('')
 
   function handleChange(event) {
     setEditedText(event.target.value);
   }
 
   function handleEdit() {
-    onEdit(editedText);
+    if (editedText.trim() !== '') {
+      onEdit(editedText);
+      setError('')
+    } else {
+      setError('内容が空です');
+    }
   }
 
   return (
@@ -18,6 +24,7 @@ export default function MemoEditor({memo, onEdit, onDelete }) {
         < input type="text" value={editedText} onChange={handleChange} />
         <button onClick={handleEdit}>編集</button>
         <button onClick={() => onDelete(memo.id)}>削除</button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
     </div>
   );

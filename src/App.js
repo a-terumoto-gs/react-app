@@ -27,13 +27,19 @@ export default function App() {
     setSelectedMemo(null);
   }
 
+  function handleAdd() {
+    const newMemo = { id: Date.now(), text: '' };
+    setMemos([...memos, newMemo]);
+    setSelectedMemo(newMemo);
+  }
+
   return (
     <div>
-      <MemoList memos={memos} onSelect={handleSlect} />
+      <MemoList memos={memos} onSelect={handleSlect} onAdd={handleAdd} />
       {selectedMemo &&
       <MemoEditor memo={selectedMemo}
         onEdit={handleEdit}
-        on onDelete={ () => handleDelete(selectedMemo.id)}
+        on onDelete={handleDelete}
         />} 
     </div>
   );
