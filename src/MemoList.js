@@ -3,7 +3,7 @@ import './MemoList.css';
 
 export default function MemoList({ memos, onSelect, onAdd}) {
   return (
-    <div>
+    <div className="index-box">
       <h1>メモ一覧</h1>
       <ul>
         {memos.map((memo) => (

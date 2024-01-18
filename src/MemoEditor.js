@@ -24,8 +24,8 @@ export default function MemoEditor({memo, onEdit, onDelete }) {
   }
 
   return (
-    <div className="editor-container">
-      <h2>メモ内容</h2>
+    <div>
+      <h2 className="heading">メモ内容</h2>
       <div>
         <textarea className="memo-content" type="text" value={editedText} onChange={handleChange} />
         <div className="memo-buttons">

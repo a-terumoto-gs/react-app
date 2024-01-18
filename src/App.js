@@ -31,7 +31,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="display-box">
       <MemoList memos={memos} onSelect={handleSlect} onAdd={handleAdd} />
       {selectedMemo &&
       <MemoEditor memo={selectedMemo}
