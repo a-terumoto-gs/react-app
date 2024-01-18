@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import MemoList from './MemoList';
 import MemoEditor from './MemoEditor';
+import './App.css';
 
 export default function App() {
-  const [memos, setMemos] = useState([
-    { id: 1, text: 'Memo 1' },
-    { id: 2, text: 'Memo 2' },
-  ]);
-  //サンプルデータ
+  const [memos, setMemos] = useState([]);
 
   const [selectedMemo, setSelectedMemo] = useState(null);
 
@@ -23,16 +20,14 @@ export default function App() {
   }
 
   function handleDelete (memoId) {
-    setMemos(memos.filter(memo => memo.id !== memoId)); //消すメモ以外をセットする
+    setMemos(memos.filter(memo => memo.id !== memoId));
     setSelectedMemo(null);
   }
 
   function handleAdd() {
-    if (selectedMemo && selectedMemo.text.trim() !== '') {
-    const newMemo = { id: Date.now(), text: '' };
+    const newMemo = { id: Date.now(), text: '新規メモ' };
     setMemos([...memos, newMemo]);
     setSelectedMemo(newMemo);
-    }
   }
 
   return (
@@ -45,4 +40,4 @@ export default function App() {
         />} 
     </div>
   );
-      }
+}
