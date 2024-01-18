@@ -15,3 +15,8 @@
   color: blue;
   text-decoration: none;
 }
+
+.memo-title.selected {
+  font-weight: bold;
+  border-bottom: 3px solid 	#ccc;
+}

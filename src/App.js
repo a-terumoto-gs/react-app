@@ -5,7 +5,6 @@ import './App.css';
 
 export default function App() {
   const [memos, setMemos] = useState([]);
-
   const [selectedMemo, setSelectedMemo] = useState(null);
 
   function handleSlect (memo) {
@@ -32,7 +31,7 @@ export default function App() {
 
   return (
     <div className="display-box">
-      <MemoList memos={memos} onSelect={handleSlect} onAdd={handleAdd} />
+      <MemoList memos={memos} onSelect={handleSlect} onAdd={handleAdd} selectedMemo={selectedMemo} />
       {selectedMemo &&
       <MemoEditor memo={selectedMemo}
         onEdit={handleEdit}
