@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MemoList from './MemoList';
 import MemoEditor from './MemoEditor';
 import './App.css';
 
 export default function App() {
-  const [memos, setMemos] = useState([]);
+  const storedMemos = JSON.parse(localStorage.getItem('memos')) || [];
+  const [memos, setMemos] = useState(storedMemos);
   const [selectedMemo, setSelectedMemo] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('memos', JSON.stringify(memos));
+  }, [memos]);
+  
+
 
   function handleSlect (memo) {
     setSelectedMemo(memo);
