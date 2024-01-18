@@ -1,22 +1,22 @@
-.index-box{
+.index-box {
   margin: 0 25px;
 }
 
-.new-botton{
+.new-botton {
   width: 30px;
   margin: 0 25px;
 }
 
-.memo-title{
+.memo-title {
   font-size: 25px;
 }
 
-.memo-title:hover{
+.memo-title:hover {
   color: blue;
   text-decoration: none;
 }
 
 .memo-title.selected {
   font-weight: bold;
-  border-bottom: 3px solid 	#ccc;
+  border-bottom: 3px solid #ccc;
 }

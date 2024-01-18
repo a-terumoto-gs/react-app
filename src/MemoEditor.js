@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import './MemoEditor.css'
+import React, { useState, useEffect } from "react";
+import "./MemoEditor.css";
 
-export default function MemoEditor({memo, onEdit, onDelete }) {
-  const [editedText, setEditedText] = useState(memo ? memo.text : '');
-  const [error, setError] = useState('')
+export default function MemoEditor({ memo, onEdit, onDelete }) {
+  const [editedText, setEditedText] = useState(memo ? memo.text : "");
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    setEditedText(memo ? memo.text : '');
-    setError('');
+    setEditedText(memo ? memo.text : "");
+    setError("");
   }, [memo]);
 
   function handleChange(event) {
@@ -15,11 +15,11 @@ export default function MemoEditor({memo, onEdit, onDelete }) {
   }
 
   function handleEdit() {
-    if (editedText.trim() !== '') {
+    if (editedText.trim() !== "") {
       onEdit(editedText);
-      setError('')
+      setError("");
     } else {
-      setError('内容が空です');
+      setError("内容が空です");
     }
   }
 
@@ -27,7 +27,12 @@ export default function MemoEditor({memo, onEdit, onDelete }) {
     <div>
       <h2 className="heading">メモ内容</h2>
       <div>
-        <textarea className="memo-content" type="text" value={editedText} onChange={handleChange} />
+        <textarea
+          className="memo-content"
+          type="text"
+          value={editedText}
+          onChange={handleChange}
+        />
         <div className="memo-buttons">
           <button onClick={handleEdit}>編集</button>
           <button onClick={() => onDelete(memo.id)}>削除</button>
@@ -37,4 +42,3 @@ export default function MemoEditor({memo, onEdit, onDelete }) {
     </div>
   );
 }
-

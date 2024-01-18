@@ -1,7 +1,7 @@
-import React from 'react';
-import './MemoList.css';
+import React from "react";
+import "./MemoList.css";
 
-export default function MemoList({ memos, onSelect, onAdd, selectedMemo}) {
+export default function MemoList({ memos, onSelect, onAdd, selectedMemo }) {
   return (
     <div className="index-box">
       <h1>メモ一覧</h1>
@@ -9,15 +9,16 @@ export default function MemoList({ memos, onSelect, onAdd, selectedMemo}) {
         {memos.map((memo) => (
           <li
             key={memo.id}
-            className={`memo-title ${memo === selectedMemo ? 'selected' : ''}`}
+            className={`memo-title ${memo === selectedMemo ? "selected" : ""}`}
             onClick={() => onSelect(memo)}
           >
-            {memo.text.split('\n')[0]}
+            {memo.text.split("\n")[0]}
           </li>
         ))}
       </ul>
-      <button className = "new-botton" onClick={onAdd}>+</button>
+      <button className="new-botton" onClick={onAdd}>
+        +
+      </button>
     </div>
   );
 }
-
