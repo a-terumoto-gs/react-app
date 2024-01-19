@@ -1,7 +1,10 @@
 import React from "react";
+import { useAuth } from './AuthOperation';
 import "./MemoList.css";
 
 export default function MemoList({ memos, onSelect, onAdd, selectedMemo }) {
+  const { LoggedIn } = useAuth();
+
   return (
     <div className="index-box">
       <h1>メモ一覧</h1>
@@ -16,9 +19,11 @@ export default function MemoList({ memos, onSelect, onAdd, selectedMemo }) {
           </li>
         ))}
       </ul>
-      <button className="new-botton" onClick={onAdd}>
-        +
-      </button>
+      {LoggedIn && (
+        <button className="new-botton" onClick={onAdd}>
+          +
+        </button>
+      )}
     </div>
   );
 }

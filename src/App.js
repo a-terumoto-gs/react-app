@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MemoList from "./MemoList";
 import MemoEditor from "./MemoEditor";
+import AuthProvider from "./AuthOperation"; 
+import LoginButton from "./LoginButton";
 import "./App.css";
 
 export default function App() {
@@ -12,7 +14,7 @@ export default function App() {
     localStorage.setItem("memos", JSON.stringify(memos));
   }, [memos]);
 
-  function handleSlect(memo) {
+  function handleSelect(memo) {
     setSelectedMemo(memo);
   }
 
@@ -37,21 +39,26 @@ export default function App() {
   }
 
   return (
-    <div className="display-box">
-      <MemoList
-        memos={memos}
-        onSelect={handleSlect}
-        onAdd={handleAdd}
-        selectedMemo={selectedMemo}
-      />
-      {selectedMemo && (
-        <MemoEditor
-          memo={selectedMemo}
-          onEdit={handleEdit}
-          on
-          onDelete={handleDelete}
+    <AuthProvider>
+      <div className="display-box">
+        <MemoList
+          memos={memos}
+          onSelect={handleSelect}
+          onAdd={handleAdd}
+          selectedMemo={selectedMemo}
         />
-      )}
-    </div>
+        <div className="right-box">
+          <LoginButton />
+          {selectedMemo && (
+            <MemoEditor
+              memo={selectedMemo}
+              onEdit={handleEdit}
+              on
+              onDelete={handleDelete}
+            />
+          )}
+        </div>
+      </div>
+    </AuthProvider>
   );
 }

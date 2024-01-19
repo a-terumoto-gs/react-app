@@ -1,3 +1,8 @@
 .display-box {
   display: flex;
 }
+
+.right-box{
+  display: flex;
+  flex-direction: column;
+}
