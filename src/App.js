@@ -12,7 +12,7 @@ export default function App() {
     localStorage.setItem("memos", JSON.stringify(memos));
   }, [memos]);
 
-  function handleSlect(memo) {
+  function handleSelect(memo) {
     setSelectedMemo(memo);
   }
 
@@ -40,7 +40,7 @@ export default function App() {
     <div className="display-box">
       <MemoList
         memos={memos}
-        onSelect={handleSlect}
+        onSelect={handleSelect}
         onAdd={handleAdd}
         selectedMemo={selectedMemo}
       />
