@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MemoList from "./MemoList";
 import MemoEditor from "./MemoEditor";
-import AuthProvider from "./AuthOperation";
+import LoginProvider from "./LoginOperation";
 import LoginButton from "./LoginButton";
 import "./App.css";
 
@@ -39,7 +39,7 @@ export default function App() {
   }
 
   return (
-    <AuthProvider>
+    <LoginProvider>
       <div className="display-box">
         <MemoList
           memos={memos}
@@ -59,6 +59,6 @@ export default function App() {
           )}
         </div>
       </div>
-    </AuthProvider>
+    </LoginProvider>
   );
 }

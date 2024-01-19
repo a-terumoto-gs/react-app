@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 
-const AuthContext = createContext();
+const LoginContext = createContext();
 
-export default function AuthProvider({ children }) {
+export default function LoginProvider({ children }) {
   const [LoggedIn, setLoggedIn] = useState(false);
 
   function login() {
@@ -14,12 +14,12 @@ export default function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ LoggedIn, login, logout }}>
+    <LoginContext.Provider value={{ LoggedIn, login, logout }}>
       {children}
-    </AuthContext.Provider>
+    </LoginContext.Provider>
   );
 }
 
-export const useAuth = () => {
-  return useContext(AuthContext);
+export const useLogin = () => {
+  return useContext(LoginContext);
 };

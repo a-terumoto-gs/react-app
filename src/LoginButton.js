@@ -1,9 +1,9 @@
 import React from "react";
-import { useAuth } from "./AuthOperation";
+import { useLogin } from "./LoginOperation";
 import "./LoginButton.css";
 
 export default function LoginButton() {
-  const { LoggedIn, login, logout } = useAuth();
+  const { LoggedIn, login, logout } = useLogin();
 
   function handleAuth() {
     if (LoggedIn) {

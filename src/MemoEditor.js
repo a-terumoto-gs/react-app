@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "./AuthOperation";
+import { useLogin } from "./LoginOperation";
 import "./MemoEditor.css";
 
 export default function MemoEditor({ memo, onEdit, onDelete }) {
   const [editedText, setEditedText] = useState(memo ? memo.text : "");
   const [error, setError] = useState("");
-  const { LoggedIn } = useAuth();
+  const { LoggedIn } = useLogin();
 
   useEffect(() => {
     setEditedText(memo ? memo.text : "");
