@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.right-box{
+.right-box {
   display: flex;
   flex-direction: column;
 }

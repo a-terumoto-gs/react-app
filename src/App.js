@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MemoList from "./MemoList";
 import MemoEditor from "./MemoEditor";
-import AuthProvider from "./AuthOperation"; 
+import AuthProvider from "./AuthOperation";
 import LoginButton from "./LoginButton";
 import "./App.css";
 

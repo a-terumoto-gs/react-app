@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from './AuthOperation';
+import { useAuth } from "./AuthOperation";
 import "./MemoEditor.css";
 
 export default function MemoEditor({ memo, onEdit, onDelete }) {
@@ -53,12 +53,11 @@ export default function MemoEditor({ memo, onEdit, onDelete }) {
               type="text"
               value={editedText}
               onChange={handleChange}
-              readOnly={!LoggedIn} 
+              readOnly={!LoggedIn}
             />
           </div>
         </>
       )}
     </div>
   );
-  
 }

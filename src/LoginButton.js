@@ -1,11 +1,11 @@
-import React from 'react';
-import { useAuth } from './AuthOperation';
-import "./LoginButton.css"
+import React from "react";
+import { useAuth } from "./AuthOperation";
+import "./LoginButton.css";
 
-export default function LoginButton (){
+export default function LoginButton() {
   const { LoggedIn, login, logout } = useAuth();
 
-  function handleAuth () {
+  function handleAuth() {
     if (LoggedIn) {
       logout();
     } else {
@@ -15,7 +15,7 @@ export default function LoginButton (){
 
   return (
     <button className="login_button" onClick={handleAuth}>
-      {LoggedIn ? 'ログアウト' : 'ログイン'}
+      {LoggedIn ? "ログアウト" : "ログイン"}
     </button>
   );
 }

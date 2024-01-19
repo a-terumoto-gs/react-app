@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from './AuthOperation';
+import { useAuth } from "./AuthOperation";
 import "./MemoList.css";
 
 export default function MemoList({ memos, onSelect, onAdd, selectedMemo }) {
