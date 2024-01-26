@@ -6,7 +6,7 @@ import "./App.css";
 export default function App() {
   const storedMemos = JSON.parse(localStorage.getItem("memos")) || [];
   const [memos, setMemos] = useState(storedMemos);
-  const [selectedMemo, setSelectedMemo] = useState(null);
+  const [selectedMemo, setSelectedMemo] = useState({});
 
   useEffect(() => {
     localStorage.setItem("memos", JSON.stringify(memos));
@@ -48,7 +48,6 @@ export default function App() {
         <MemoEditor
           memo={selectedMemo}
           onEdit={handleEdit}
-          on
           onDelete={handleDelete}
         />
       )}

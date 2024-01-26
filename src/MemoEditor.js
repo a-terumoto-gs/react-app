@@ -34,7 +34,7 @@ export default function MemoEditor({ memo, onEdit, onDelete }) {
           onChange={handleChange}
         />
         <div className="memo-buttons">
-          <button onClick={handleEdit}>編集</button>
+          <button onClick={handleEdit}>保存</button>
           <button onClick={() => onDelete(memo.id)}>削除</button>
         </div>
         {error && <p className="error-message">{error}</p>}
