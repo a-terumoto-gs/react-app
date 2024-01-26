@@ -1,0 +1,22 @@
+.index-box {
+  margin: 0 25px;
+}
+
+.new-botton {
+  width: 30px;
+  margin: 0 25px;
+}
+
+.memo-title {
+  font-size: 25px;
+}
+
+.memo-title:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.memo-title.selected {
+  font-weight: bold;
+  border-bottom: 3px solid #ccc;
+}
