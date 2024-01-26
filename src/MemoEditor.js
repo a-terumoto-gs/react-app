@@ -27,37 +27,23 @@ export default function MemoEditor({ memo, onEdit, onDelete }) {
 
   return (
     <div>
-      {LoggedIn ? (
-        <>
-          <h2 className="heading">メモ内容</h2>
-          <div>
-            <textarea
-              className="memo-content"
-              type="text"
-              value={editedText}
-              onChange={handleChange}
-            />
-            <div className="memo-buttons">
-              <button onClick={handleEdit}>保存</button>
-              <button onClick={() => onDelete(memo.id)}>削除</button>
-            </div>
-            {error && <p className="error-message">{error}</p>}
+      <h2 className="heading">メモ内容</h2>
+      <div>
+        <textarea
+          className="memo-content"
+          type="text"
+          value={editedText}
+          onChange={handleChange}
+          readOnly={!LoggedIn}
+        />
+        {LoggedIn && (
+          <div className="memo-buttons">
+            <button onClick={handleEdit}>保存</button>
+            <button onClick={() => onDelete(memo.id)}>削除</button>
           </div>
-        </>
-      ) : (
-        <>
-          <h2 className="heading">メモ内容</h2>
-          <div>
-            <textarea
-              className="memo-content"
-              type="text"
-              value={editedText}
-              onChange={handleChange}
-              readOnly={!LoggedIn}
-            />
-          </div>
-        </>
-      )}
+        )}
+        {error && <p className="error-message">{error}</p>}
+      </div>
     </div>
   );
 }
