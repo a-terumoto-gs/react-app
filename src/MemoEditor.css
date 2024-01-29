@@ -1,5 +1,5 @@
 .heading {
-  margin: 100px 25px 0 20px;
+  margin: 10px 25px 0 20px;
 }
 
 .memo-content {
@@ -7,6 +7,7 @@
   width: 400px;
   margin: 10px 40px;
   font-size: 20px;
+  border-radius: 5px;
 }
 
 .memo-buttons {
@@ -17,5 +18,5 @@
 
 .error-message {
   color: red;
-  margin: 10px 30px;
+  margin: 10px 50px;
 }

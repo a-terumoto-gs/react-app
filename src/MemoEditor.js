@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useLogin } from "./LoginOperation";
 import "./MemoEditor.css";
 
 export default function MemoEditor({ memo, onEdit, onDelete }) {
   const [editedText, setEditedText] = useState(memo ? memo.text : "");
   const [error, setError] = useState("");
+  const { LoggedIn } = useLogin();
 
   useEffect(() => {
     setEditedText(memo ? memo.text : "");
@@ -32,11 +34,14 @@ export default function MemoEditor({ memo, onEdit, onDelete }) {
           type="text"
           value={editedText}
           onChange={handleChange}
+          readOnly={!LoggedIn}
         />
-        <div className="memo-buttons">
-          <button onClick={handleEdit}>保存</button>
-          <button onClick={() => onDelete(memo.id)}>削除</button>
-        </div>
+        {LoggedIn && (
+          <div className="memo-buttons">
+            <button onClick={handleEdit}>保存</button>
+            <button onClick={() => onDelete(memo.id)}>削除</button>
+          </div>
+        )}
         {error && <p className="error-message">{error}</p>}
       </div>
     </div>

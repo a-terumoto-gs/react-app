@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MemoList from "./MemoList";
 import MemoEditor from "./MemoEditor";
+import LoginProvider from "./LoginOperation";
+import LoginButton from "./LoginButton";
 import "./App.css";
 
 export default function App() {
@@ -22,12 +24,12 @@ export default function App() {
         memo.id === selectedMemo.id ? { ...memo, text: newText } : memo,
       ),
     );
-    setSelectedMemo(null);
+    setSelectedMemo({});
   }
 
   function handleDelete(memoId) {
     setMemos(memos.filter((memo) => memo.id !== memoId));
-    setSelectedMemo(null);
+    setSelectedMemo({});
   }
 
   function handleAdd() {
@@ -37,20 +39,25 @@ export default function App() {
   }
 
   return (
-    <div className="display-box">
-      <MemoList
-        memos={memos}
-        onSelect={handleSelect}
-        onAdd={handleAdd}
-        selectedMemo={selectedMemo}
-      />
-      {selectedMemo && (
-        <MemoEditor
-          memo={selectedMemo}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
+    <LoginProvider>
+      <div className="display-box">
+        <MemoList
+          memos={memos}
+          onSelect={handleSelect}
+          onAdd={handleAdd}
+          selectedMemo={selectedMemo}
         />
-      )}
-    </div>
+        <div className="right-box">
+          <LoginButton />
+          {selectedMemo && (
+            <MemoEditor
+              memo={selectedMemo}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
+          )}
+        </div>
+      </div>
+    </LoginProvider>
   );
 }
