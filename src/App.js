@@ -24,12 +24,12 @@ export default function App() {
         memo.id === selectedMemo.id ? { ...memo, text: newText } : memo,
       ),
     );
-    setSelectedMemo(null);
+    setSelectedMemo({});
   }
 
   function handleDelete(memoId) {
     setMemos(memos.filter((memo) => memo.id !== memoId));
-    setSelectedMemo(null);
+    setSelectedMemo({});
   }
 
   function handleAdd() {
